@@ -3,23 +3,21 @@ package pl.sternik.pb.kaczki;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.sternik.pb.ges.AdapterGesKaczkowa;
-import pl.sternik.pb.ges.Ges;
 import pl.sternik.pb.kaczki.kwakanie.Niemowa;
 
-public class Symulator {
+public class SymulatorFabrykujacy {
 
 	public static void main(String[] args) {
 
-		Kaczka dzika = new DzikaKaczka("dziwaczka");
+		Kaczka dzika = Kaczka.dajKaczke(KaczkaTypy.Dzika, "Dziwaczka");
 		
 		dzika.kwacz();
 		dzika.lataj();
 		dzika.wyswietl();
 		
-		Kaczka gumowa = new GumowaKaczka("żółta");
-		Kaczka drewniana = new DrewnianaKaczka("Dębowa");
-		Kaczka mandarynka = new MandarynkaKaczka("samiec");
+		Kaczka gumowa = Kaczka.dajKaczke(KaczkaTypy.Gumowa, "Zolta");
+		Kaczka drewniana = Kaczka.dajKaczke(KaczkaTypy.Drewniana, "Debowa");
+		Kaczka mandarynka = Kaczka.dajKaczke(KaczkaTypy.Mandarynka, "Samiec");
 
 		List<Kaczka> kaczki = new ArrayList<Kaczka>();
 		kaczki.add(dzika);
@@ -42,8 +40,7 @@ public class Symulator {
 		
 		gumowa.kwacz();
 		
-		Ges ges = new Ges("dzika");
-		Kaczka gesAdapter = new AdapterGesKaczkowa(ges);
+		Kaczka gesAdapter = Kaczka.dajKaczke(KaczkaTypy.Ges, "Kacza Ges");
 		
 		System.out.println("-------------GES---------------");
 		gesAdapter.wyswietl();
