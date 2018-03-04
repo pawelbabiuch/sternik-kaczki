@@ -3,6 +3,8 @@ package pl.sternik.pb.kaczki;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.sternik.pb.ges.AdapterGesKaczkowa;
+import pl.sternik.pb.ges.Ges;
 import pl.sternik.pb.kaczki.kwakanie.Niemowa;
 
 public class Symulator {
@@ -38,5 +40,14 @@ public class Symulator {
 		gumowa.setKwakanie(new Niemowa());
 		
 		gumowa.kwacz();
+		
+		Ges ges = new Ges("dzika");
+		Kaczka gesAdapter = new AdapterGesKaczkowa(ges);
+		
+		System.out.println("-------------GES---------------");
+		gesAdapter.wyswietl();
+		gesAdapter.lataj();
+		gesAdapter.plywaj();
+		gesAdapter.kwacz();
 	}
 }
